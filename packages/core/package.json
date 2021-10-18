@@ -1,6 +1,6 @@
 {
   "name": "@lerna-test/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "> TODO: description",
   "author": "祝云开 <kianzyk@gmail.com>",
   "homepage": "",
@@ -23,6 +23,6 @@
     "lerna-test": "lib/index.js"
   },
   "dependencies": {
-    "@lerna-test/utils": "0.0.1"
+    "@lerna-test/utils": "^0.0.2"
   }
 }
