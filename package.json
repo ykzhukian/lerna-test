@@ -3,8 +3,5 @@
   "private": true,
   "devDependencies": {
     "lerna": "^4.0.0"
-  },
-  "dependencies": {
-    "@lerna-test-cool/core": "^1.1.8"
   }
 }

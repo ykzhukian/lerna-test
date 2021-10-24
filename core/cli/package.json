@@ -23,7 +23,7 @@
     "lerna-test": "./bin/index.js"
   },
   "dependencies": {
-    "@lerna-test-cool/utils": "^1.1.7",
+    "@lerna-test-cool/log": "file:../../utils/log",
     "import-local": "^3.0.3",
     "npmlog": "^5.0.1"
   },
