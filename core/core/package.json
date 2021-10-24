@@ -1,5 +1,5 @@
 {
-  "name": "@lerna-test/core",
+  "name": "@lerna-test-cool/core",
   "version": "1.1.5",
   "description": "> TODO: description",
   "author": "祝云开 <kianzyk@gmail.com>",
@@ -23,9 +23,9 @@
     "lerna-test": "./bin/index.js"
   },
   "dependencies": {
-    "@lerna-test/utils": "^1.1.5",
+    "@lerna-test-cool/utils": "file:../../utils/utils",
     "import-local": "^3.0.3",
     "npmlog": "^5.0.1"
   },
-  "gitHead": "ea98f61c6ea89bc15cd2f6fc986c12e292fc2619"
+  "gitHead": "606bb64b47a93bfbb267d678a63ed1d4eaa6cfce"
 }

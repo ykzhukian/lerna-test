@@ -7,3 +7,7 @@ if (importLocal(__filename)) {
 } else {
   require('../lib')(process.argv.slice(2))
 }
+
+const utils = require('@lerna-test-cool/utils')
+console.log('greeting')
+utils()
