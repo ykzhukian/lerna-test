@@ -1,4 +1,6 @@
-#!/usr/bin/node
-const core = require('../lib')
+#!/usr/bin/env node
 
-core()
+const utils = require('@lerna-test/utils')
+
+console.log('greeting')
+utils()

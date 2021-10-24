@@ -19,7 +19,5 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "bin": {
-    "lerna-test": "lib/utils.js"
-  }
+  "gitHead": "1ebce2433e1494951e5d6a50e62506c43c7beed0"
 }

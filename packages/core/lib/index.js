@@ -1,7 +1,7 @@
 'use strict';
 
-function core() {
-    console.log('cool')
-}
-
 module.exports = core;
+
+function core() {
+    // TODO
+}

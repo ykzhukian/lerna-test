@@ -20,9 +20,10 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bin": {
-    "lerna-test": "lib/index.js"
+    "lerna-test": "./bin/index.js"
   },
   "dependencies": {
-    "@lerna-test/utils": "^0.0.2"
-  }
+    "@lerna-test/utils": "file:../utils"
+  },
+  "gitHead": "1ebce2433e1494951e5d6a50e62506c43c7beed0"
 }
