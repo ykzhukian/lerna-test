@@ -2,6 +2,7 @@
   "name": "lerna-test-cool",
   "private": true,
   "devDependencies": {
+    "@lerna-test-cool/core": "^1.1.7",
     "lerna": "^4.0.0"
   }
 }
