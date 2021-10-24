@@ -23,9 +23,9 @@
     "lerna-test": "./bin/index.js"
   },
   "dependencies": {
-    "@lerna-test/utils": "file:../../utils/utils",
+    "@lerna-test/utils": "^1.0.0",
     "import-local": "^3.0.3",
     "npmlog": "^5.0.1"
   },
-  "gitHead": "1ebce2433e1494951e5d6a50e62506c43c7beed0"
+  "gitHead": "86a27f42920d382c750b3fbf0cdcae22692e2968"
 }

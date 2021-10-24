@@ -3,5 +3,10 @@
   "private": true,
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com"
+    }
   }
 }
