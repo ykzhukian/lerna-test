@@ -1,6 +1,6 @@
 {
-  "name": "@lerna-test/utils",
-  "version": "0.0.2",
+  "name": "@lerna-test-cool/utils",
+  "version": "1.1.7",
   "description": "> TODO: description",
   "author": "祝云开 <kianzyk@gmail.com>",
   "homepage": "",
@@ -13,11 +13,8 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "registry": "https://registry.npm.taobao.org/"
-  },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "gitHead": "1ebce2433e1494951e5d6a50e62506c43c7beed0"
+  "gitHead": "339cc44469eea6d4e3f5fa35b01febcdf2523392"
 }

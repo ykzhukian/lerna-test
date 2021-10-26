@@ -1,0 +1,7 @@
+const LOWEST_NODE_VERSION = '12.0.0'
+const SOMETHING = 'DEFAULT'
+
+module.exports = {
+  LOWEST_NODE_VERSION,
+  SOMETHING
+}

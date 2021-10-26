@@ -1,9 +1,9 @@
 {
-  "name": "@lerna-test/core",
-  "version": "0.0.2",
+  "name": "@lerna-test-cool/log",
+  "version": "1.1.10",
   "description": "> TODO: description",
   "author": "祝云开 <kianzyk@gmail.com>",
-  "homepage": "",
+  "homepage": "https://github.com/ykzhukian/lerna-test#readme",
   "license": "ISC",
   "main": "lib/index.js",
   "directories": {
@@ -14,16 +14,19 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.npm.taobao.org/"
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ykzhukian/lerna-test.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "bin": {
-    "lerna-test": "./bin/index.js"
+  "bugs": {
+    "url": "https://github.com/ykzhukian/lerna-test/issues"
   },
   "dependencies": {
-    "@lerna-test/utils": "file:../utils"
-  },
-  "gitHead": "1ebce2433e1494951e5d6a50e62506c43c7beed0"
+    "npmlog": "^5.0.1"
+  }
 }
