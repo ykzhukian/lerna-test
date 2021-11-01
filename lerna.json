@@ -5,7 +5,7 @@
     "utils/*",
     "models/*"
   ],
-  "version": "0.1.1",
+  "version": "0.1.2",
   "ignoreChanges": [
     "**/__fixtures__/**",
     "**/__tests__/**",
