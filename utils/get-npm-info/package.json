@@ -1,5 +1,5 @@
 {
-  "name": "get-npm-info",
+  "name": "@lerna-test-cool/get-npm-info",
   "version": "0.1.2",
   "description": "> TODO: description",
   "author": "祝云开 <kianzyk@gmail.com>",
@@ -27,5 +27,6 @@
     "axios": "^0.23.0",
     "semver": "^7.3.5",
     "url-join": "^4.0.1"
-  }
+  },
+  "gitHead": "f56a4bd40352519e2b651cf5d829fe38b5f21efe"
 }
