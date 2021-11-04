@@ -13,7 +13,7 @@ const pkg = require("../package.json");
 const constant = require("./const");
 const log = require("@lerna-test-cool/log");
 const { getNpmSemverVersion } = require("@lerna-test-cool/get-npm-info");
-const init = require('@lerna-test-cool/init');
+const exec = require('@lerna-test-cool/exec');
 
 let args;
 const program = new commander.Command();
@@ -38,6 +38,7 @@ function registerCommand() {
     .name(Object.keys(pkg.bin)[0])
     .version(pkg.version)
     .usage("<command> [options]")
+    .option("-tp, --targetPath <targetPath>", "是否指定本地调试文件路径", "")
     .option("-d, --debug", "是否开启调试模式?", false);
 
   // 注册命令
@@ -45,7 +46,7 @@ function registerCommand() {
     .command("init [projectName]")
     .description("初始化")
     .option("-f, --force", "是否强制初始化项目")
-    .action(init);
+    .action(exec);
 
   program.on("option:debug", () => {
     // commander7.0后从opts方法里获取参数
@@ -66,6 +67,13 @@ function registerCommand() {
     if (availableCommands.length > 0) {
       log.info(`可用命令：${availableCommands.join(",")}`);
     }
+  });
+
+  program.on("option:targetPath", () => {
+    // commander7.0后从opts方法里获取参数
+    // https://github.com/tj/commander.js/blob/master/Readme_zh-CN.md
+    //  process.env.CLI_TARGET_PATH = program.targetPath
+    process.env.CLI_TARGET_PATH = program.opts().targetPath;
   });
 
   program.parse(process.argv);

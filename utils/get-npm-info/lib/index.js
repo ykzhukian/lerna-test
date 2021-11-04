@@ -44,8 +44,28 @@ function getDefaultRegistry(isOriginal = true) {
     return isOriginal ? 'https://registry.npmjs.org' : 'https://registry.npm.taobao.org'
 }
 
+// get-npm-info
+async function getNpmLatestVersion(npmName, registry) {
+    try {
+      const versions = await getNpmVersions(npmName, registry);
+      if (versions) {
+        return versions.sort((a, b) => {
+          if (semver.gt(a, b)) {
+            return -1;
+          } else {
+            return 1;
+          }
+        })[0];
+      }
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }
+
 module.exports = {
     getNpmInfo,
     getNpmVersions,
     getNpmSemverVersion,
+    getNpmLatestVersion,
 };
