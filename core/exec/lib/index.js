@@ -6,7 +6,7 @@ const log = require("@lerna-test-cool/log");
 
 // 命令对应的包的 map
 const SETTINGS = {
-  init: "@lerna-test-cool/init",
+  init: "@lerna-test-cool/utils",
   init1: "@lerna-test-cool/init1",
   // ...
 };
@@ -26,8 +26,9 @@ async function exec() {
   const cmdName = cmdObj.name();
   log.verbose(cmdName);
   const packageName = SETTINGS[cmdName];
-//   const packageVersion = "0.1.4";
-  const packageVersion = '*'
+  // const packageVersion = "0.1.4";
+  // const packageVersion = '*'
+  const packageVersion = 'latest'
 
   if (!targetPath) {
     targetPath = path.resolve(homePath, CATCH_DIR);

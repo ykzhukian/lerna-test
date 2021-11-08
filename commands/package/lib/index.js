@@ -50,6 +50,10 @@ class Package {
     return path.resolve(this.storeDir, `_${this.cacheFilePathPrefix}@${this.packageVersion}@${this.packageName}`)
   }
 
+  getSpecificCacheFilePath(latestVersion) {
+    return path.resolve(this.storeDir, `_${this.cacheFilePathPrefix}@${latestVersion}@${this.packageName}`)
+  }
+
   // 判断当前Package是否存在，有缓存则检查缓存内是否存在这个包，没有则查看是否有直接指向对应的包的地址；外层虽然对 targetPath做了判断，但是Package是公共类，其他地方也会调用，所以需要判断targetPath。
   async exists() {
     console.log('exists')
@@ -68,6 +72,8 @@ class Package {
   async install() {
     console.log('install')
     await this.prepare()
+    console.log('this.targetPath', this.targetPath);
+    console.log('this.storeDir', this.storeDir);
     await npminstall({
       root: this.targetPath,// 安装的包需要放的位置
       storeDir: this.storeDir,// 包的缓存
@@ -84,7 +90,27 @@ class Package {
 
   // 升级Package
   async upDate() {
-    console.log("upDate");
+    console.log('upDate')
+    // 1. 获取最新版本号
+    const latestVersion = await getNpmLatestVersion(this.packageName)
+    // 2. 查找最新版本号是否存在
+    const latestFilePath = this.getSpecificCacheFilePath(latestVersion)
+    // 这里有个逻辑 我们一定是在缓存文件夹里找到了我们要的包,所以才走upDate，同样在缓存文件夹里找到了我们要的包 所以在目标文件夹一定是有了我们需要的包了，无需再下载。
+    if (!pathExists(latestFilePath)) {
+      await npminstall({
+        root: this.targetPath,
+        storeDir: this.storeDir,
+        registry: getDefaultRegistry(),
+        pkgs: [
+          {
+            name: this.packageName, version: latestVersion
+          }
+        ]
+      }).catch((e) => {
+        console.log(e)
+      })
+      this.packageVersion = latestVersion
+    }
   }
 
   _getRootFilePath(targetPath) {
