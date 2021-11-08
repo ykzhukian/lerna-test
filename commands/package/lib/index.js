@@ -8,7 +8,8 @@ const pkgDir = require('pkg-dir').sync
 const formatPath = require('@lerna-test-cool/format-path')
 const pathExists = require('path-exists')
 const fse = require("fs-extra");
-const { getNpmLatestVersion } = require('@lerna-test-cool/get-npm-info')
+const npminstall = require("npminstall");
+const { getNpmLatestVersion, getDefaultRegistry } = require('@lerna-test-cool/get-npm-info')
 
 class Package {
   constructor(options) {
@@ -65,7 +66,20 @@ class Package {
 
   // 安装Package
   async install() {
-    console.log("install");
+    console.log('install')
+    await this.prepare()
+    await npminstall({
+      root: this.targetPath,// 安装的包需要放的位置
+      storeDir: this.storeDir,// 包的缓存
+      registry: getDefaultRegistry(),// 下载域名
+      pkgs: [
+        {
+          name: this.packageName, version: this.packageVersion
+        }
+      ]// 需要安装的包的信息
+    }).catch((e) => {
+      console.log(e)
+    })
   }
 
   // 升级Package
