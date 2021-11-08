@@ -1,6 +1,6 @@
 {
   "name": "@lerna-test-cool/exec",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "> TODO: description",
   "author": "祝云开 <kianzyk@gmail.com>",
   "homepage": "https://github.com/ykzhukian/lerna-test#readme",
@@ -24,8 +24,8 @@
     "url": "https://github.com/ykzhukian/lerna-test/issues"
   },
   "dependencies": {
-    "@lerna-test-cool/init": "^0.1.3",
+    "@lerna-test-cool/init": "^0.1.4",
     "@lerna-test-cool/log": "^0.1.3",
-    "@lerna-test-cool/package": "^0.1.3"
+    "@lerna-test-cool/package": "^0.1.4"
   }
 }
