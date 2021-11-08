@@ -86,7 +86,6 @@ function registerCommand() {
 async function prepare() {
   try {
     checkPkgVersion();
-    checkNodeVersion();
     checkRoot();
     checkUserHome();
     checkEnv();
@@ -147,15 +146,6 @@ function checkUserHome() {
 // 检查是否是root用户
 function checkRoot() {
   rootCheck();
-}
-
-// 检查node版本
-function checkNodeVersion() {
-  const currentVersion = process.version;
-  const lowestVersion = constant.LOWEST_NODE_VERSION;
-  if (!semver.gte(currentVersion, lowestVersion)) {
-    throw new Error(colors.red(`请安装${lowestVersion}版本及以上node`));
-  }
 }
 
 // 打印当前版本

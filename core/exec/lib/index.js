@@ -1,12 +1,13 @@
 "use strict";
 
 const path = require("path");
+const cp = require("child_process")
 const Package = require("@lerna-test-cool/package");
 const log = require("@lerna-test-cool/log");
 
 // 命令对应的包的 map
 const SETTINGS = {
-  init: "@lerna-test-cool/utils",
+  init: "@lerna-test-cool/init",
   init1: "@lerna-test-cool/init1",
   // ...
 };
@@ -57,7 +58,33 @@ async function exec() {
   }
   const rootFile = pkg.getRootFilePath();
   if (rootFile) {
-    require(rootFile).apply(null, arguments);
+    try {
+      const args = Array.from(arguments);
+      const cmd = args[args.length - 1];
+      const o = Object.create(null);
+      Object.keys(cmd).forEach((key) => {
+        if (cmd.hasOwnProperty(key) && !key.startsWith("_") && key !== "parent") {
+          o[key] = cmd[key];
+        }
+      });
+      args[args.length - 1] = o;
+      const code = `require('${rootFile}').call(null,${JSON.stringify(args)} )`;
+      const child = cp.spawn("node", ["-e", code], {
+        cwd: process.cwd(),
+        stdio: "inherit",
+      });
+
+      child.on("error", (e) => {
+        log.error(e.message);
+        process.exit(1);
+      });
+      child.on("exit", (e) => {
+        log.verbose("exit");
+        process.exit(0);
+      });
+    } catch (e) {
+      log.error(e.message);
+    }
   }
 }
 
