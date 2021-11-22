@@ -5,6 +5,7 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
+    "@lerna-test-cool/package": "^0.1.4",
     "ejs": "^3.1.6"
   }
 }

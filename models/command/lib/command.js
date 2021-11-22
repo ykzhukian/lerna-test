@@ -8,13 +8,13 @@ const LOWEST_NODE_VERSION = "v12.0.0";
 
 class Command {
   constructor(argv) {
-    console.log("this is Command");
+    console.log("this is Command", argv);
     if (!argv) {
       throw Error("参数不能为空！");
     }
-    if (!Array.isArray(argv)) {
-      throw Error("参数必须为数组！");
-    }
+    // if (!Array.isArray(argv)) {
+    //   throw Error("参数必须为数组！");
+    // }
     if (argv.length < 1) {
       throw Error("参数列表不得为空");
     }
